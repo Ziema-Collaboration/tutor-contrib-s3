@@ -21,8 +21,8 @@ for name in ['', 'boto3', 'botocore', 's3transfer']:
     logger.propagate = True
     logger.debug('tutor plugin mysite_s3 patch openedx-common-settings test log message from %s', name)
 
-mysite_offloaded_media_root = "media/"
-mysite_offloaded_media_url = "/media/"
+mysite_offloaded_media_root = "media/"      # THERE MUST BE A TRAILING SLASH
+mysite_offloaded_media_url = "/media/"      # THERE MUST BE A LEADING AND TRAILING SLASH
 mysite_offloaded_media_storage_class = "storages.backends.s3boto3.S3Boto3Storage"
 mysite_offloaded_media_region = "il-central-1"
 
