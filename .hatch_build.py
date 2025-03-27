@@ -16,6 +16,6 @@ class MetaDataHook(MetadataHookInterface):
 
 def load_about() -> dict[str, str]:
     about: dict[str, str] = {}
-    with open(os.path.join(HERE, "mysite_s3", "__about__.py"), "rt", encoding="utf-8") as f:
+    with open(os.path.join(HERE, "lemans_s3", "__about__.py"), "rt", encoding="utf-8") as f:
         exec(f.read(), about)  # pylint: disable=exec-used
     return about

@@ -1,6 +1,6 @@
 # pylint: disable=C0301,C0114,C0103
 # -----------------------------------------------------------------------------
-# tutor plugin mysite_s3 openedx-common-settings
+# tutor plugin lemans_s3 openedx-common-settings
 # contact:  Lawrence McDaniel
 #           https://lawrencemcdaniel.com
 #
@@ -19,44 +19,44 @@ for name in ['', 'boto3', 'botocore', 's3transfer']:
     boto3.set_stream_logger(name, logging.DEBUG, format_string=None)
     logger = logging.getLogger(name)
     logger.propagate = True
-    logger.debug('tutor plugin mysite_s3 patch openedx-common-settings test log message from %s', name)
+    logger.debug('tutor plugin lemans_s3 patch openedx-common-settings test log message from %s', name)
 
-mysite_offloaded_media_root = "media/"
-mysite_offloaded_media_url = "/media/"
-mysite_offloaded_media_storage_class = "storages.backends.s3boto3.S3Boto3Storage"
-mysite_offloaded_media_region = "il-central-1"
+lemans_offloaded_media_root = "media/"
+lemans_offloaded_media_url = "/media/"
+lemans_offloaded_media_storage_class = "storages.backends.s3boto3.S3Boto3Storage"
+lemans_offloaded_media_region = "il-central-1"
 
-MEDIA_ROOT = mysite_offloaded_media_root
-MEDIA_URL = mysite_offloaded_media_url
+MEDIA_ROOT = lemans_offloaded_media_root
+MEDIA_URL = lemans_offloaded_media_url
 
 AWS_S3_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
 AWS_S3_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME = "mysite-openedx-il-prod-storage"
+AWS_STORAGE_BUCKET_NAME = "lemans-openedx-il-prod-storage"
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 FILE_UPLOAD_STORAGE_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME
 FILE_UPLOAD_STORAGE_PREFIX = 'submissions_attachments'
 
-mysite_offloaded_storage_kwargs = dict(
+lemans_offloaded_storage_kwargs = dict(
         access_key=AWS_S3_ACCESS_KEY_ID,
         secret_key=AWS_S3_SECRET_ACCESS_KEY,
         bucket_name=AWS_STORAGE_BUCKET_NAME,
-        region_name=mysite_offloaded_media_region,
+        region_name=lemans_offloaded_media_region,
         file_overwrite=True,
         querystring_auth=True,
         custom_domain=AWS_S3_CUSTOM_DOMAIN,
-        location=mysite_offloaded_media_root,
+        location=lemans_offloaded_media_root,
         )
 # example reference: https://github.com/openedx/edx-platform/blob/master/cms/urls.py#L367
-# example url: https://mysite-openedx-il-prod-storage.s3.amazonaws.com/media/video-transcripts/004ea9f891e44ec6a984625c4e4771a4.sjson
+# example url: https://lemans-openedx-il-prod-storage.s3.amazonaws.com/media/video-transcripts/004ea9f891e44ec6a984625c4e4771a4.sjson
 #
 # see https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#
 VIDEO_TRANSCRIPTS_SETTINGS = dict(
     VIDEO_TRANSCRIPTS_MAX_BYTES=3 * 1024 * 1024,    # 3 MB
-    STORAGE_CLASS=mysite_offloaded_media_storage_class,
-    STORAGE_KWARGS=mysite_offloaded_storage_kwargs,
+    STORAGE_CLASS=lemans_offloaded_media_storage_class,
+    STORAGE_KWARGS=lemans_offloaded_storage_kwargs,
     DIRECTORY_PREFIX='video-transcripts/',
-    BASE_URL=mysite_offloaded_media_url,
+    BASE_URL=lemans_offloaded_media_url,
 )
 
 # example reference:
@@ -66,22 +66,22 @@ VIDEO_TRANSCRIPTS_SETTINGS = dict(
 VIDEO_IMAGE_SETTINGS = dict(
     VIDEO_IMAGE_MAX_BYTES=2 * 1024 * 1024,    # 2 MB
     VIDEO_IMAGE_MIN_BYTES=2 * 1024,       # 2 KB
-    STORAGE_CLASS=mysite_offloaded_media_storage_class,
-    STORAGE_KWARGS=mysite_offloaded_storage_kwargs,
+    STORAGE_CLASS=lemans_offloaded_media_storage_class,
+    STORAGE_KWARGS=lemans_offloaded_storage_kwargs,
     DIRECTORY_PREFIX='video-images/',
-    BASE_URL=mysite_offloaded_media_url,
+    BASE_URL=lemans_offloaded_media_url,
 )
 
 # mcdaniel: an example of this configuration being referenced
 # https://github.com/openedx/edx-platform/blob/master/lms/djangoapps/instructor_task/models.py#L231
 GRADES_DOWNLOAD = dict(
-    STORAGE_CLASS=mysite_offloaded_media_storage_class,
+    STORAGE_CLASS=lemans_offloaded_media_storage_class,
     STORAGE_KWARGS=dict(
-      location=os.path.join(mysite_offloaded_media_root, 'grades/'),
+      location=os.path.join(lemans_offloaded_media_root, 'grades/'),
     ),
     STORAGE_TYPE='s3',
     BUCKET=AWS_STORAGE_BUCKET_NAME,
-    ROOT_PATH=os.path.join(mysite_offloaded_media_root, 'grades/'),
+    ROOT_PATH=os.path.join(lemans_offloaded_media_root, 'grades/'),
 )
 
 # mcdaniel: why is is non-standard????
@@ -89,11 +89,11 @@ GRADES_DOWNLOAD = dict(
 # example reference:
 # https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/user_api/accounts/image_helpers.py#L28
 PROFILE_IMAGE_BACKEND = {
-  'class': mysite_offloaded_media_storage_class,
+  'class': lemans_offloaded_media_storage_class,
   'options': {
-    'location': os.path.join(mysite_offloaded_media_root, 'profile-images/'),
-    'base_url': os.path.join(mysite_offloaded_media_url, 'profile-images/'),
+    'location': os.path.join(lemans_offloaded_media_root, 'profile-images/'),
+    'base_url': os.path.join(lemans_offloaded_media_url, 'profile-images/'),
   },
 }
 
-######## End of tutor plugin mysite_s3 openedx-common-settings ########
+######## End of tutor plugin lemans_s3 openedx-common-settings ########

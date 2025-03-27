@@ -1,7 +1,7 @@
-mysite_s3 plugin for `Tutor <https://docs.tutor.edly.io>`__
+lemans_s3 plugin for `Tutor <https://docs.tutor.edly.io>`__
 ############################################################
 
-mysite_s3 plugin for Tutor provides integration for offloading media files to Amazon S3. Principal media types offloaded include but might not be limited to:
+lemans_s3 plugin for Tutor provides integration for offloading media files to Amazon S3. Principal media types offloaded include but might not be limited to:
 
 - video transcripts
 - course imports/exports
@@ -17,14 +17,14 @@ Installation
 
 .. code-block:: bash
 
-    pip install git+https://github.com/mysitefree/tutor-contrib-mysite-s3
+    pip install git+https://github.com/lemansfree/tutor-contrib-lemans-s3
 
 Usage
 *****
 
 .. code-block:: bash
 
-    tutor plugins enable mysite_s3
+    tutor plugins enable lemans_s3
 
 
 License

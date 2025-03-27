@@ -2,8 +2,8 @@
 # https://hatch.pypa.io/latest/config/build/
 
 [project]
-name = "tutor-contrib-mysite-s3"
-description = "mysite_s3 plugin for Tutor"
+name = "tutor-contrib-lemans-s3"
+description = "lemans_s3 plugin for Tutor"
 authors = [
   { name = "Lawrence McDaniel"}, 
   { email = "lpm0073@gmail.com" },
@@ -36,9 +36,9 @@ dynamic = ["version"]
 
 # https://packaging.python.org/en/latest/specifications/well-known-project-urls/#well-known-labels
 [project.urls]
-Documentation = "https://github.com/mysitefree/tutor-contrib-mysite-s3#readme"
-Issues = "https://github.com/mysitefree/tutor-contrib-mysite-s3/issues"
-Source = "https://github.com/mysitefree/tutor-contrib-mysite-s3"
+Documentation = "https://github.com/lemansfree/tutor-contrib-lemans-s3#readme"
+Issues = "https://github.com/lemansfree/tutor-contrib-lemans-s3/issues"
+Source = "https://github.com/lemansfree/tutor-contrib-lemans-s3"
 
 [build-system]
 requires = ["hatchling"]
@@ -49,13 +49,13 @@ build-backend = "hatchling.build"
 path = ".hatch_build.py"
 
 [tool.hatch.build.targets.wheel]
-packages = ["mysite_s3"]
+packages = ["lemans_s3"]
 
 [tool.hatch.build.targets.sdist]
 # Disable strict naming, otherwise twine is not able to detect name/version
 strict-naming = false
-include = [ "/mysite_s3"]
+include = [ "/lemans_s3"]
 exclude = ["tests*"]
 
 [project.entry-points."tutor.plugin.v1"]
-mysite_s3 = "mysite_s3.plugin"
+lemans_s3 = "lemans_s3.plugin"

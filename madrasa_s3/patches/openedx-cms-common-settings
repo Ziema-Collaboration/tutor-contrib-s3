@@ -1,6 +1,6 @@
 # pylint: disable=C0301,C0114,C0103
 # -----------------------------------------------------------------------------
-# tutor plugin mysite_s3 openedx-cms-common-settings
+# tutor plugin lemans_s3 openedx-cms-common-settings
 # contact:  Lawrence McDaniel
 #           https://lawrencemcdaniel.com
 # -----------------------------------------------------------------------------
@@ -8,4 +8,4 @@
 # Studio course import/export from aws bucket instead of file system.
 COURSE_IMPORT_EXPORT_BUCKET = AWS_STORAGE_BUCKET_NAME
 
-######## End of tutor plugin mysite_s3 openedx-cms-common-settings ########
+######## End of tutor plugin lemans_s3 openedx-cms-common-settings ########
