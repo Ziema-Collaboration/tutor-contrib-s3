@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "openedx-lms-common-settings": "python",
+    "openedx-common-settings": "python"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}

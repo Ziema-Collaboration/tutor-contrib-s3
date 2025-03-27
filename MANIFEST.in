@@ -1,0 +1,2 @@
+recursive-include mysite_s3/patches *
+recursive-include mysite_s3/templates *
