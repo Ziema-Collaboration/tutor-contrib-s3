@@ -21,10 +21,10 @@ for name in ['', 'boto3', 'botocore', 's3transfer']:
     logger.propagate = True
     logger.debug('tutor plugin lemans_s3 patch openedx-common-settings test log message from %s', name)
 
-lemans_offloaded_media_root = "media/"
-lemans_offloaded_media_url = "/media/"
-lemans_offloaded_media_storage_class = "storages.backends.s3boto3.S3Boto3Storage"
-lemans_offloaded_media_region = "il-central-1"
+mysite_offloaded_media_root = "media/"      # THERE MUST BE A TRAILING SLASH
+mysite_offloaded_media_url = "/media/"      # THERE MUST BE A LEADING AND TRAILING SLASH
+mysite_offloaded_media_storage_class = "storages.backends.s3boto3.S3Boto3Storage"
+mysite_offloaded_media_region = "il-central-1"
 
 MEDIA_ROOT = lemans_offloaded_media_root
 MEDIA_URL = lemans_offloaded_media_url

@@ -17,15 +17,16 @@ Installation
 
 .. code-block:: bash
 
-    pip install git+https://github.com/lemansfree/tutor-contrib-lemans-s3
-
+    pip install git+https://github.com/mysitefree/tutor-contrib-mysite-s3
+    pip list
 
 Usage
 *****
 
 .. code-block:: bash
 
-    tutor plugins enable lemans_s3
+    tutor plugins enable mysite_s3
+    tutor plugins list
 
 
 License
